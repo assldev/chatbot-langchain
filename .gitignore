@@ -1,0 +1,15 @@
+# WORK IN PROGRESS
+app/chat_models/huggingface_wrapper.py
+app/vectorstores/
+app/configs/
+
+# Python
+*__pycache__
+
+# MacOS
+.DS_Store
+
+# DEV ENVIRONMENT
+.env
+Dockerfile-dev
+test.py

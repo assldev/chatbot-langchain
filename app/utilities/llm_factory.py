@@ -1,4 +1,4 @@
-from utilities.constants import Models, Errors, ModelConfigs
+from utilities.constants import Models, Errors
 from chat_models.openai_wrapper import OpenAIWrapper
 from chat_models.huggingface_wrapper import HuggingFaceWrapper
 
@@ -13,6 +13,8 @@ class LLMFactory:
     
     def get_llm(self, model_name: str, model_config={}):
         if model_name == Models.OPENAI:
-            return OpenAIWrapper(model_config[ModelConfigs.OPENAI.TEMPERATURE])
+            chatbot = OpenAIWrapper()
+            chatbot.set_config(model_config)
+            return chatbot
         else:
             raise Exception(f"{Errors.CHAT_MODEL_NOT_AVAILABLE}: {model_name}")
